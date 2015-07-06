@@ -46,6 +46,41 @@
 
 
 
+// Concatenation
+// Fast than 'foo' + 'bar'
+var concat = function(arrayOfStrings){
+  return arrayOfStrings.join("");
+};
+
+
+// String Builder
+(function(w){
+  
+  w = w || window;
+  
+  function StrBuilder(){
+    this.str = [];
+    return str;
+  }
+  
+  StrBuilder.prototype.add = function(s){
+    this.str.push(s);
+    return this;
+  };
+  StrBuilder.prototype.remove = function(optionalIndex){
+    if(arguments.length){
+      this.str.splice(optionalIndex,1);
+    }else{
+      this.str.splice(this.str.length - 1, 1);
+    }
+    return this;
+  };
+  
+  window.StrBuilder = StrBuilder;
+  
+})(window);
+
+
 
 
 
